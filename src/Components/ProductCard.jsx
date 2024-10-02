@@ -9,7 +9,7 @@ import findIndex from './Helper';
 function ProductCard({data}) {
     let ide = data.id;
     let subtot = 0;
-    let [quantity, setQuantity] = useState(0);z
+    let [quantity, setQuantity] = useState(0);
     let list = useSelector(state=>state.cart);
     let prod = useSelector(state=>state.product)
 
