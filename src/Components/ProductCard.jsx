@@ -9,7 +9,7 @@ import findIndex from './Helper';
 function ProductCard({data}) {
     let ide = data.id;
     let subtot = 0;
-    let [quantity, setQuantity] = useState(0);
+    let [quantity, setQuantity] = useState(0);z
     let list = useSelector(state=>state.cart);
     let prod = useSelector(state=>state.product)
 
@@ -17,31 +17,12 @@ function ProductCard({data}) {
     let [subtots, setSubtots] = useState(0);
     let [toogle, setToogle] = useState(true);
 
-    // function handleCart(){
-    //   let index = findIndex(total, data.id);
-    //   let ide = data.id
-    //   dispatch(AddCart({ide, subtot}))
-    //   let discount = ((data.price*data.discountPercentage)/100)*subtot;
-    //   let finprice = subtot*data.price - discount;
-    //   let fin = {id: Number(total[index].id), subtotal: finprice}
-    //   total.splice(index, 1, fin);
-    //   setTotal([...total])
-    //   console.log(total)
-    //   setToogle(false);
-    // }
-
     function handleChange(val){
-      // let index = findIndex(prod, data.id)
+
       val = Number(val)
       dispatch(SubTotal({ide, val}))
       setQuantity(val)
-
-      
-      // subtot = prod[index].subtotal;
-      // let discount = ((data.price*data.discountPercentage)/100)*subtot;
-      // subtot = subtot*data.price - discount;
-      // setSubtots(subtot)
-      
+  
     }
     function handleCart(){
       let index = findIndex(prod, data.id)
@@ -95,7 +76,6 @@ function ProductCard({data}) {
                 <h4>${data.price}</h4>
               </div>
               <div className='mt-5'>
-                {/* <Button variant='primary' onClick={()=>{handleCart()}}>Add to Cart</Button> */}
                 {
                   toogle?<Button variant='primary' onClick={()=>{handleCart()}}>Add to Cart</Button>:<Button variant='danger' onClick={()=>{removeCart()}}>Remove From Cart</Button>
                 }
